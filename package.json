@@ -1,0 +1,30 @@
+{
+  "name": "@hawryschuk/dao-mysql",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "files": [
+    "index.js"
+  ],
+  "author": "Hawryschuk, Alexander",
+  "license": "ISC",
+  "scripts": {
+    "hawryschuk": "npm link @hawryschuk/common @hawryschuk/dao @hawryschuk/redaction",
+    "test": "ts-mocha mysql.dao.spec.ts --timeout 200000",
+    "build": "npm run hawryschuk && rm -rf dist/* && tsc --outDir dist && hawryschuk --package-json",
+    "start": "nodemon --ignore dist --ignore node_modules --delay 2000ms --ext ts --exec \"npm run build && npm test\""
+  },
+  "dependencies": {
+    "mysql": "^2.18.1"
+  },
+  "devDependencies": {
+    "@types/chai": "^4.2.9",
+    "@types/mocha": "^7.0.1",
+    "@types/node": "^13.7.4",
+    "chai": "^4.2.0",
+    "mocha": "^7.0.1",
+    "ts-mocha": "^7.0.0",
+    "tslib": "^1.11.1",
+    "typescript": "^3.8.3"
+  }
+}
